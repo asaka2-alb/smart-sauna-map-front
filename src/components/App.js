@@ -54,7 +54,7 @@ function App() {
 }
 
 function updateMapViewCenter(setCenter, query) {
-  const url = 'http://localhost:5000/';
+  const url = 'https://smart-sauna-map-back.herokuapp.com/';
   createPromise(url, { query })
     .then((location) => {
       setCenter({ lat: location.lat, lng: location.lng });
@@ -63,7 +63,7 @@ function updateMapViewCenter(setCenter, query) {
 
 function updateSaunas(setSaunas, keyword = 'shinjuku', prefecture = '') {
   // Python のサウナイキタイパースサーバにクエリを投げてサウナ情報を取得する関数.
-  const url = 'http://localhost:5000/sauna';
+  const url = 'https://smart-sauna-map-back.herokuapp.com/sauna';
   createPromise(url, { keyword, prefecture })
     .then((saunas) => {
       setSaunas(saunas);
