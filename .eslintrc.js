@@ -7,7 +7,6 @@ module.exports = {
     "extends": [
         "plugin:react/recommended",
         "airbnb",
-        "plugin:testing-library/react",
         "plugin:cypress/recommended",
     ],
     "parserOptions": {
