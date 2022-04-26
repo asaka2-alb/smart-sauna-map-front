@@ -9,13 +9,25 @@ env:
   REACT_APP_K: ${{ secrets.REACT_APP_K }}
 
 jobs:
-  test:
+  cypress-component-test:
     environment: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - run: yarn install
-      - run: yarn test
+
+      - name: install
+        run: yarn install
+
+      - name: Run Component tests 🧪
+        uses: cypress-io/github-action@v2
+        with:
+          # we have already installed everything
+          install: false
+          # to run component tests we need to use "cypress run-ct"
+          command: yarn cypress run-ct
