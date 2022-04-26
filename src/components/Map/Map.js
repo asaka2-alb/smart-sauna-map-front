@@ -1,6 +1,6 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
-import { SaunaMarker } from './Marker';
+import { SaunaMarker } from './Marker/Marker';
 
 // APIKEYは""としていれば開発者モードで使えます
 const APIKEY = process.env.REACT_APP_K;
