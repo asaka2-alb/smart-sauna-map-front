@@ -3,12 +3,12 @@ import {
   Grid, ThemeProvider, CssBaseline,
 } from '@mui/material';
 
-import theme from '../theme/theme';
+import theme from '../../theme/theme';
 import './App.css';
-import Maps from './Map';
-import QueryForm from './QueryForm';
-import LongMenu from './LongMenu';
-import pic from '../data/img/logo.png';
+import Maps from '../Map/Map';
+import QueryForm from '../QueryForm/QueryForm';
+import LongMenu from '../LongMenu/LongMenu';
+import pic from '../../data/img/logo.png';
 
 function App() {
   const [center, setCenter] = useState({ lat: 35.683542, lng: 139.703338 });

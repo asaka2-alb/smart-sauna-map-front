@@ -8,9 +8,6 @@
     "@googlemaps/react-wrapper": "^1.1.21",
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.0",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "dexie": "^3.2.0",
     "dotenv": "^8.2.0",
     "google-auth-library": "^7.10.1",
@@ -25,7 +22,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cy:open-ct": "cypress open-ct",
+    "cy:run-ct": "cypress run-ct",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:run:firefox": "cypress run --browser firefox"
   },
   "eslintConfig": {
     "extends": [
@@ -46,7 +49,14 @@
     ]
   },
   "devDependencies": {
+    "@cypress/react": "^5.12.4",
+    "@cypress/webpack-dev-server": "^1.8.4",
+    "@testing-library/cypress": "^8.0.2",
+    "cypress": "^9.5.4",
     "dotenv-cli": "^4.1.1",
-    "eslint-config-airbnb": "^19.0.4"
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-testing-library": "^5.3.1",
+    "webpack-dev-server": "^4.8.1"
   }
 }
