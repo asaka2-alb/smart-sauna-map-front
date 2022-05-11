@@ -2,7 +2,46 @@ import React from 'react';
 import { mount } from '@cypress/react';
 import App from './App';
 
-it('renders learn react link', () => {
-  mount(<App />);
-  // cy.get('a').contains('Learn React');
+const SEARCH_WORD = 'gotenba';
+
+const latlng = {
+  lat: 35.2987346,
+  lng: 138.9451729,
+};
+
+const saunas = [
+  {
+    address: 'hoge town',
+    name: 'hoge sauna',
+    ikitai: 100,
+    ...latlng,
+  },
+];
+
+describe('App', () => {
+  beforeEach(() => {
+    cy.intercept('POST', '/', {
+      statusCode: 200,
+      body: latlng,
+    });
+    cy.intercept('POST', '/sauna', {
+      statusCode: 200,
+      body: saunas,
+    });
+
+    mount(<App />);
+    cy.get('#search-textfield').type(SEARCH_WORD);
+    cy.get('#search-button').click();
+  });
+
+  it('renders sauna marker', () => {
+    saunas.forEach((sauna) => cy.contains(`${sauna.ikitai}`).should('be.visible'));
+  });
+
+  it('renders marker popup', () => {
+    saunas.forEach((sauna) => {
+      cy.contains(`${sauna.ikitai}`).click();
+      cy.contains(`${sauna.name}`).should('be.visible');
+    });
+  });
 });
