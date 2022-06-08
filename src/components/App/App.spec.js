@@ -64,6 +64,6 @@ describe('App render an alert when backend geocoding returns not found', () => {
   });
 
   it('renders not found popup', () => {
-    cy.contains('Error').should('be.visible');
+    cy.contains('ERROR').should('be.visible');
   });
 });

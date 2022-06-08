@@ -6,7 +6,7 @@ function ErrorAlert({ open, onClose, message }) {
   return (
     <Snackbar open={open} autoHideDuration={6000} onClose={onClose}>
       <Alert onClose={onClose} severity="error" sx={{ width: '100%' }}>
-        {`Error: ${message}`}
+        {`ERROR: ${message}`}
       </Alert>
     </Snackbar>
   );
