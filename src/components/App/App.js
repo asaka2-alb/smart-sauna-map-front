@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
   Grid, ThemeProvider, CssBaseline,
 } from '@mui/material';
+import styled from 'styled-components';
 import ErrorAlert from '../Alerts/Alerts';
 
 import theme from '../../theme/theme';
@@ -12,6 +13,13 @@ import LongMenu from '../LongMenu/LongMenu';
 import pic from '../../data/img/logo.png';
 
 function App() {
+  const Logo = styled.img`
+    max-width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+  `;
+
   const [center, setCenter] = useState({ lat: 35.683542, lng: 139.703338 });
   const [saunas, setSaunas] = useState([]);
   const [query, setQuery] = useState('');
@@ -66,7 +74,9 @@ function App() {
       <div className="App">
         <Grid container spacing={{ xs: 2, md: 3 }} justifyContent="center" alignItems="center">
           <Grid item xs={8} md={10}>
-            <p><img src={pic} alt="logo.png" /></p>
+            <Logo as="div">
+              <img src={pic} alt="logo.png" />
+            </Logo>
           </Grid>
           <Grid item xs={2}>
             <LongMenu />
