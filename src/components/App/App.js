@@ -89,7 +89,7 @@ function App() {
 }
 
 async function fetchMapViewCenter(query) {
-  const url = 'https://smart-sauna-map-back.herokuapp.com/';
+  const url = 'https://smart-sauna-map-back.herokuapp.com/geocode';
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -99,7 +99,7 @@ async function fetchMapViewCenter(query) {
 }
 
 async function fetchSaunas(query) {
-  const url = 'https://smart-sauna-map-back.herokuapp.com/sauna';
+  const url = 'https://smart-sauna-map-back.herokuapp.com/search_sauna';
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
