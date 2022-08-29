@@ -9,7 +9,7 @@ import './App.css';
 import Maps from '../Map/Map';
 import QueryForm from '../QueryForm/QueryForm';
 import LongMenu from '../LongMenu/LongMenu';
-import pic from '../../data/img/logo.png';
+import Logo from '../Logo/Logo';
 
 function App() {
   const [center, setCenter] = useState({ lat: 35.683542, lng: 139.703338 });
@@ -64,15 +64,15 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className="App">
-        <Grid container spacing={3} justifyContent="center" alignItems="center">
-          <Grid item xs={10}>
-            <p><img src={pic} alt="logo.png" /></p>
+        <Grid container spacing={{ xs: 2, md: 3 }} justifyContent="center" alignItems="center">
+          <Grid item xs={8} md={10}>
+            <Logo />
           </Grid>
           <Grid item xs={2}>
             <LongMenu />
           </Grid>
         </Grid>
-        <Grid container spacing={3} justifyContent="center" alignItems="center">
+        <Grid container spacing={{ xs: 2, md: 3 }} justifyContent="center" alignItems="center">
           <Grid item xs={12}>
             <QueryForm
               query={query}
