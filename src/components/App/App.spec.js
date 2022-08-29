@@ -21,11 +21,11 @@ const saunas = [
 
 describe('App', () => {
   beforeEach(() => {
-    cy.intercept('POST', '/', {
+    cy.intercept('POST', '/geocode', {
       statusCode: 200,
       body: latlng,
     });
-    cy.intercept('POST', '/sauna', {
+    cy.intercept('POST', '/search_sauna', {
       statusCode: 200,
       body: saunas,
     });
@@ -49,11 +49,11 @@ describe('App', () => {
 
 describe('App render an alert when backend geocoding returns not found', () => {
   beforeEach(() => {
-    cy.intercept('POST', '/', {
+    cy.intercept('POST', '/geocode', {
       statusCode: 404,
       body: latlng,
     });
-    cy.intercept('POST', '/sauna', {
+    cy.intercept('POST', '/search_sauna', {
       statusCode: 200,
       body: saunas,
     });
