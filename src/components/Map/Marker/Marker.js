@@ -60,13 +60,18 @@ export function SaunaMarker({ lat, lng, sauna }) {
 }
 
 function PopupWindow({ sauna }) {
+  const MAN_SAUNA_TEMPERATURE = sauna.mans_room.sauna_temperature;
+  const MAN_MIZU_TEMPERATURE = sauna.mans_room.mizuburo_temperature;
+  const WOMAN_SAUNA_TEMPERATURE = sauna.womans_room.sauna_temperature;
+  const WOMAN_MIZU_TEMPERATURE = sauna.womans_room.mizuburo_temperature;
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="100"
-          image="https://img.sauna-ikitai.com/sauna/2779_20211208_085227_MPS6bb8eik_large.jpg"
+          height="150"
+          image={sauna.image_url}
           alt="sauna"
         />
         <CardContent>
@@ -75,13 +80,12 @@ function PopupWindow({ sauna }) {
           </Typography>
           <Typography variant="body4" color="text.secondary" component="div">
             <pre>
-              男; サ: 90 水: 10
-              女; サ: 80 水: 10
+              男; サ: {MAN_SAUNA_TEMPERATURE} 水: {MAN_MIZU_TEMPERATURE}
+              女; サ: {WOMAN_SAUNA_TEMPERATURE} 水: {WOMAN_MIZU_TEMPERATURE}
             </pre>
           </Typography>
           <Typography variant="body3" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            {sauna.description[0]} {sauna.description[1]}
           </Typography>
         </CardContent>
       </CardActionArea>
