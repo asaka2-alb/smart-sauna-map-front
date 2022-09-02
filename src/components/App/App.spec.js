@@ -12,10 +12,16 @@ const latlng = {
 
 const saunas = [
   {
-    address: 'hoge town',
+    sauna_id: 123,
     name: 'hoge sauna',
+    address: 'hoge town',
     ikitai: 100,
     ...latlng,
+    image_url: 'http://example.com',
+    mans_room: { sauna_temperature: 100, mizuburo_temperature: 20 },
+    womans_room: { sauna_temperature: 100, mizuburo_temperature: 20 },
+    unisex_room: { sauna_temperature: 100, mizuburo_temperature: 20 },
+    description: ['hoge', 'fuga'],
   },
 ];
 
