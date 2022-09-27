@@ -10,6 +10,7 @@ import Maps from '../Map/Map';
 import QueryForm from '../QueryForm/QueryForm';
 import LongMenu from '../LongMenu/LongMenu';
 import Logo from '../Logo/Logo';
+import backendUrls from './backend_urls.json';
 
 function App() {
   const [center, setCenter] = useState({ lat: 35.683542, lng: 139.703338 });
@@ -89,23 +90,21 @@ function App() {
 }
 
 async function fetchMapViewCenter(query) {
-  const url = 'https://smart-sauna-map-back.herokuapp.com/geocode';
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(query),
   };
-  return fetch(url, requestOptions);
+  return fetch(backendUrls.geocode, requestOptions);
 }
 
 async function fetchSaunas(query) {
-  const url = 'https://smart-sauna-map-back.herokuapp.com/search_sauna';
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(query),
   };
-  return fetch(url, requestOptions);
+  return fetch(backendUrls.search_sauna, requestOptions);
 }
 
 export default App;

@@ -1,0 +1,4 @@
+{
+  "geocode": "https://smart-sauna-map-back.onrender.com/geocode",
+  "search_sauna": "https://smart-sauna-map-back.onrender.com/search_sauna" 
+}
