@@ -60,10 +60,20 @@ export function SaunaMarker({ lat, lng, sauna }) {
 }
 
 function PopupWindow({ sauna }) {
-  const MAN_SAUNA_TEMPERATURE = sauna.mans_room.sauna_temperature;
-  const MAN_MIZU_TEMPERATURE = sauna.mans_room.mizuburo_temperature;
-  const WOMAN_SAUNA_TEMPERATURE = sauna.womans_room.sauna_temperature;
-  const WOMAN_MIZU_TEMPERATURE = sauna.womans_room.mizuburo_temperature;
+  /**
+   * If nullable is `null`, nullable will be filled with `value`.
+   * @param {number | null} nullable - `null` の可能性がある値。
+   * @return {string} - `nullable` が `null` の場合は `--` を返す。
+   */
+  function fillNullAs(nullable) {
+    const value = '--';
+    return nullable ?? value;
+  }
+
+  const manSaunaTemperature = fillNullAs(sauna.mans_room?.sauna_temperature);
+  const manMizuTemperature = fillNullAs(sauna.mans_room?.mizuburo_temperature);
+  const womanSaunaTemperature = fillNullAs(sauna.womans_room?.sauna_temperature);
+  const womanMizuTemperature = fillNullAs(sauna.womans_room?.mizuburo_temperature);
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -80,8 +90,8 @@ function PopupWindow({ sauna }) {
           </Typography>
           <Typography variant="body4" color="text.secondary" component="div">
             <pre>
-              男; サ: {MAN_SAUNA_TEMPERATURE} 水: {MAN_MIZU_TEMPERATURE}
-              女; サ: {WOMAN_SAUNA_TEMPERATURE} 水: {WOMAN_MIZU_TEMPERATURE}
+              男; サ: {manSaunaTemperature} 水: {manMizuTemperature}
+              女; サ: {womanSaunaTemperature} 水: {womanMizuTemperature}
             </pre>
           </Typography>
           <Typography variant="body3" color="text.secondary">
