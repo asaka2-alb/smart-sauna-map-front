@@ -8,9 +8,9 @@ import theme from '../../theme/theme';
 import './App.css';
 import Maps from '../Map/Map';
 import QueryForm from '../QueryForm/QueryForm';
-import LongMenu from '../LongMenu/LongMenu';
 import Logo from '../Logo/Logo';
 import backendUrls from './backend_urls.json';
+import LoadingScreen from './LoadingScreen/LoadingScreen';
 
 function App() {
   const [center, setCenter] = useState({ lat: 35.683542, lng: 139.703338 });
@@ -18,6 +18,7 @@ function App() {
   const [query, setQuery] = useState('');
   const [openAlert, setOpenAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
+  const [isSearching, setIsSearching] = useState(false);
 
   const handleFormInput = (event) => {
     // state でも property でもなく event.target.value で値を渡す
@@ -26,8 +27,10 @@ function App() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault(); // デフォルトではページのリロードが行われる。これを防ぐため。
+    setIsSearching(true);
     await updateMapViewCenter(query);
     await updateSaunas(query, '');
+    setIsSearching(false);
   };
 
   const handleAlertClose = () => {
@@ -62,30 +65,30 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <div className="App">
-        <Grid container spacing={{ xs: 2, md: 3 }} justifyContent="center" alignItems="center">
-          <Grid item xs={8} md={10}>
-            <Logo />
+    <>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="App">
+          <Grid container spacing={{ xs: 2, md: 3 }} justifyContent="center" alignItems="center">
+            <Grid item xs={8} md={10}>
+              <Logo />
+            </Grid>
           </Grid>
-          <Grid item xs={2}>
-            <LongMenu />
+          <Grid container spacing={{ xs: 2, md: 3 }} justifyContent="center" alignItems="center">
+            <Grid item xs={12}>
+              <QueryForm
+                query={query}
+                onInput={handleFormInput}
+                onSubmit={handleFormSubmit}
+              />
+              <ErrorAlert open={openAlert} onClose={handleAlertClose} message={alertMessage} />
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid container spacing={{ xs: 2, md: 3 }} justifyContent="center" alignItems="center">
-          <Grid item xs={12}>
-            <QueryForm
-              query={query}
-              onInput={handleFormInput}
-              onSubmit={handleFormSubmit}
-            />
-            <ErrorAlert open={openAlert} onClose={handleAlertClose} message={alertMessage} />
-          </Grid>
-        </Grid>
-        <Maps center={center} saunas={saunas} />
-      </div>
-    </ThemeProvider>
+          <Maps center={center} saunas={saunas} />
+        </div>
+      </ThemeProvider>
+      <LoadingScreen isSearching={isSearching} />
+    </>
   );
 }
 
