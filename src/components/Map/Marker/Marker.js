@@ -90,8 +90,8 @@ function PopupWindow({ sauna }) {
           </Typography>
           <Typography variant="body4" color="text.secondary" component="div">
             <pre>
-              男; サ: {manSaunaTemperature} 水: {manMizuTemperature}
-              女; サ: {womanSaunaTemperature} 水: {womanMizuTemperature}
+              男; サ: {manSaunaTemperature} ℃ 水: {manMizuTemperature} ℃
+              女; サ: {womanSaunaTemperature} ℃ 水: {womanMizuTemperature} ℃
             </pre>
           </Typography>
           <Typography variant="body3" color="text.secondary">
