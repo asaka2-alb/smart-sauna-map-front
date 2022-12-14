@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Grid, ThemeProvider, CssBaseline,
+  ThemeProvider, CssBaseline, Stack,
 } from '@mui/material';
 import ErrorAlert from '../Alerts/Alerts';
 
@@ -69,22 +69,21 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="App">
-          <Grid container spacing={{ xs: 2, md: 3 }} justifyContent="center" alignItems="center">
-            <Grid item xs={8} md={10}>
-              <Logo />
-            </Grid>
-          </Grid>
-          <Grid container spacing={{ xs: 2, md: 3 }} justifyContent="center" alignItems="center">
-            <Grid item xs={12}>
-              <QueryForm
-                query={query}
-                onInput={handleFormInput}
-                onSubmit={handleFormSubmit}
-              />
-              <ErrorAlert open={openAlert} onClose={handleAlertClose} message={alertMessage} />
-            </Grid>
-          </Grid>
-          <Maps center={center} saunas={saunas} />
+          <Stack
+            direction={{ xs: 'column', sm: 'row', md: 'row' }}
+            spacing={1}
+          >
+            <Logo />
+            <QueryForm
+              query={query}
+              onInput={handleFormInput}
+              onSubmit={handleFormSubmit}
+            />
+            <ErrorAlert open={openAlert} onClose={handleAlertClose} message={alertMessage} />
+          </Stack>
+          <Stack div sx={{ height: 'calc(80vh - 30px)' }}>
+            <Maps center={center} saunas={saunas} />
+          </Stack>
         </div>
       </ThemeProvider>
       <LoadingScreen isSearching={isSearching} />
