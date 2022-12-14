@@ -4,10 +4,11 @@ import pic from '../../data/img/logo.png';
 
 export default function Logo() {
   const ResponsiveImage = styled.img`
-    max-width: 100%;
+    display: block;
+    max-width: 400px;
+    max-hegiht: 100px;
     height: auto;
-    padding: 0;
-    margin: 0;
+    width: auto;
   `;
 
   return <ResponsiveImage src={pic} alt="logo.png" />;
