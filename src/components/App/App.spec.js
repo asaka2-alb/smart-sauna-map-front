@@ -73,3 +73,13 @@ describe('App render an alert when backend geocoding returns not found', () => {
     cy.contains('ERROR').should('be.visible');
   });
 });
+
+describe('Paragraph text', () => {
+  it('should display the correct text in the <p> tag', () => {
+    // 対象ページにアクセス
+    mount(<App />);
+
+    // <p>タグのテキストが期待される値であることを確認
+    cy.get('p').should('contain', '© 2022-2023 Taisei Watanabe, Shohei Iida. All Rights Reserved.');
+  });
+});
