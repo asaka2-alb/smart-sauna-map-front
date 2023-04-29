@@ -29,7 +29,8 @@ function App() {
     event.preventDefault(); // デフォルトではページのリロードが行われる。これを防ぐため。
     setIsSearching(true);
     await updateMapViewCenter(query);
-    await updateSaunas(query, '');
+    // await updateSaunas(query, '');
+    await updateSaunasFromFirebase(query, '');
     setIsSearching(false);
   };
 
@@ -54,6 +55,19 @@ function App() {
   async function updateSaunas(keyword = 'shinjuku', prefecture = '') {
     // Python のサウナイキタイパースサーバにクエリを投げてサウナ情報を取得する関数.
     const response = await fetchSaunas({ keyword, prefecture });
+    try {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      setSaunas(await response.json());
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async function updateSaunasFromFirebase(keyword = 'shinjuku', prefecture = '') {
+    // Python のサウナイキタイパースサーバにクエリを投げてサウナ情報を取得する関数.
+    const response = await fetchSaunasFromFirebase({ keyword });
     try {
       if (!response.ok) {
         throw new Error(response.status);
@@ -101,6 +115,15 @@ async function fetchMapViewCenter(query) {
 }
 
 async function fetchSaunas(query) {
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(query),
+  };
+  return fetch(backendUrls.search_sauna, requestOptions);
+}
+
+async function fetchSaunasFromFirebase(query) {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
