@@ -74,8 +74,8 @@ describe('App render an alert when backend geocoding returns not found', () => {
   });
 });
 
-describe('Paragraph text', () => {
-  it('should display the correct text in the <p> tag', () => {
+describe('Copyright', () => {
+  it('should display the correct copyright', () => {
     // 対象ページにアクセス
     mount(<App />);
 
