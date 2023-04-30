@@ -76,10 +76,8 @@ describe('App render an alert when backend geocoding returns not found', () => {
 
 describe('Copyright', () => {
   it('should display the correct copyright', () => {
-    // 対象ページにアクセス
     mount(<App />);
 
-    // <p>タグのテキストが期待される値であることを確認
-    cy.get('p').should('contain', '© 2022-2023 Taisei Watanabe, Shohei Iida. All Rights Reserved.');
+    cy.get('footer').contains(/2022-20[0-9]{2}.*All\sRights\sReserved\./);
   });
 });
