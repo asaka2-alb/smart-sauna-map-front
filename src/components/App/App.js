@@ -9,6 +9,7 @@ import './App.css';
 import Maps from '../Map/Map';
 import QueryForm from '../QueryForm/QueryForm';
 import Logo from '../Logo/Logo';
+import CopyRight from '../CopyRight/CopyRight';
 import backendUrls from './backend_urls.json';
 import LoadingScreen from './LoadingScreen/LoadingScreen';
 
@@ -83,6 +84,9 @@ function App() {
           </Stack>
           <Stack div sx={{ height: 'calc(80vh - 30px)' }}>
             <Maps center={center} saunas={saunas} />
+          </Stack>
+          <Stack>
+            <CopyRight />
           </Stack>
         </div>
       </ThemeProvider>

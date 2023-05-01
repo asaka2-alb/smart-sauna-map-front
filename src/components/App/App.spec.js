@@ -73,3 +73,11 @@ describe('App render an alert when backend geocoding returns not found', () => {
     cy.contains('ERROR').should('be.visible');
   });
 });
+
+describe('Copyright', () => {
+  it('should display the correct copyright', () => {
+    mount(<App />);
+
+    cy.contains(/2022-20[0-9]{2}.*All\sRights\sReserved\./).should('be.visible');
+  });
+});
