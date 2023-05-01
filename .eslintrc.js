@@ -5,9 +5,9 @@ module.exports = {
         "cypress/globals": true,
     },
     "extends": [
-        "plugin:react/recommended",
-        "airbnb",
+        "plugin:@next/next/recommended",
         "plugin:cypress/recommended",
+        "airbnb",
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -17,7 +17,6 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react",
         "testing-library",
         "cypress",
     ],

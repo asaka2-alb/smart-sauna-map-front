@@ -1,15 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import pic from '../../data/img/logo.png';
+import Image from 'next/image';
 
 export default function Logo() {
-  const ResponsiveImage = styled.img`
-    display: block;
-    max-width: 400px;
-    max-hegiht: 100px;
-    height: auto;
-    width: auto;
-  `;
-
-  return <ResponsiveImage src={pic} alt="logo.png" />;
+  return <Image width={400} height={80} src="/data/img/logo.png" alt="logo.png" />;
 }

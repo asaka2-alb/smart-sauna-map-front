@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import {
-  ThemeProvider, CssBaseline, Stack,
-} from '@mui/material';
-import ErrorAlert from '../Alerts/Alerts';
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 
-import theme from '../../theme/theme';
-import './App.css';
-import Maps from '../Map/Map';
-import QueryForm from '../QueryForm/QueryForm';
-import Logo from '../Logo/Logo';
-import CopyRight from '../CopyRight/CopyRight';
+import React, { useState } from 'react';
+import { ThemeProvider, CssBaseline, Stack } from '@mui/material';
+import ErrorAlert from '@/components/Alerts/Alerts';
+
+import theme from '@/theme/theme';
 import backendUrls from './backend_urls.json';
+
+import Maps from '@/components/Map/Map';
+import QueryForm from '@/components/QueryForm/QueryForm';
+import Logo from '@/components/Logo/Logo';
+import CopyRight from '@/components/CopyRight/CopyRight';
 import LoadingScreen from './LoadingScreen/LoadingScreen';
 
 function App() {
@@ -80,7 +81,11 @@ function App() {
               onInput={handleFormInput}
               onSubmit={handleFormSubmit}
             />
-            <ErrorAlert open={openAlert} onClose={handleAlertClose} message={alertMessage} />
+            <ErrorAlert
+              open={openAlert}
+              onClose={handleAlertClose}
+              message={alertMessage}
+            />
           </Stack>
           <Stack div sx={{ height: 'calc(80vh - 30px)' }}>
             <Maps center={center} saunas={saunas} />
