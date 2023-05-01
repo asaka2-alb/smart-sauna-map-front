@@ -9,7 +9,7 @@ import './App.css';
 import Maps from '../Map/Map';
 import QueryForm from '../QueryForm/QueryForm';
 import Logo from '../Logo/Logo';
-import Footer from '../Footer/Footer';
+import CopyRight from '../CopyRight/CopyRight';
 import backendUrls from './backend_urls.json';
 import LoadingScreen from './LoadingScreen/LoadingScreen';
 
@@ -86,7 +86,7 @@ function App() {
             <Maps center={center} saunas={saunas} />
           </Stack>
           <Stack>
-            <Footer />
+            <CopyRight />
           </Stack>
         </div>
       </ThemeProvider>

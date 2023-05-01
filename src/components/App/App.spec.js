@@ -78,6 +78,6 @@ describe('Copyright', () => {
   it('should display the correct copyright', () => {
     mount(<App />);
 
-    cy.get('footer').contains(/2022-20[0-9]{2}.*All\sRights\sReserved\./);
+    cy.contains(/2022-20[0-9]{2}.*All\sRights\sReserved\./).should('be.visible');
   });
 });

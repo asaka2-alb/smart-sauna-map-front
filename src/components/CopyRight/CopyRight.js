@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default function Logo() {
-  const ResponsiveCopyright = styled.footer`
+  const ResponsiveCopyright = styled.p`
     color: #FFFFFF;
     font-size: 18px;
     line-height: 1.6;
