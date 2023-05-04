@@ -1,13 +1,16 @@
-import React from 'react';
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 
-function Disclaimer() {
+import React from 'react';
+import Disclaimer from '@/components/Disclaimer/Disclaimer';
+import Layout from '@/components/Layouts/Layout';
+
+function DisclaimerPage() {
   return (
-    <>
-      <h1>Disclaimer on NEXTJS</h1>
-      <h2>H2: hogehoge</h2>
-      <p>This is hell.</p>
-    </>
+    <Layout>
+      <Disclaimer />
+    </Layout>
   );
 }
 
-export default Disclaimer;
+export default DisclaimerPage;
