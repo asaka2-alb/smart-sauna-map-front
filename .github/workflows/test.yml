@@ -6,7 +6,7 @@ on:
       - "**"
 
 env:
-  REACT_APP_K: ${{ secrets.REACT_APP_K }}
+  NEXT_PUBLIC_K: ${{ secrets.NEXT_PUBLIC_K }}
 
 jobs:
   cypress-component-test:
