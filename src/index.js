@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from '@/components/App/App';
-import Layout from '@/components/Layout/Layout';
+import Layout from '@/components/Layouts/Layout';
 
 import reportWebVitals from './reportWebVitals';
 

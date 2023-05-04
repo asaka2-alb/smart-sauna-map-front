@@ -7,6 +7,7 @@ import { ThemeProvider, CssBaseline, Stack } from '@mui/material';
 import theme from '@/theme/theme';
 
 import Logo from '@/components/Logo/Logo';
+import Navbar from '@/components/Navbars/Navbar';
 import CopyRight from '@/components/CopyRight/CopyRight';
 
 export default function Layout({ children }) {
@@ -14,24 +15,23 @@ export default function Layout({ children }) {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className="App">
-        <header>
-          <Logo />
-        </header>
-        <nav>
-          <div>
-            <ol>
-              <li>Home</li>
-              <li>Disclaimer</li>
-            </ol>
-          </div>
-        </nav>
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <header>
+            <Logo />
+          </header>
+          <nav>
+            <Navbar />
+          </nav>
+        </Stack>
         <main>
           {children}
         </main>
         <footer>
-          <Stack>
-            <CopyRight />
-          </Stack>
+          <CopyRight />
         </footer>
       </div>
     </ThemeProvider>
