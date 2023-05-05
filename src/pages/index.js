@@ -3,10 +3,13 @@
 /* eslint-disable import/no-unresolved */
 
 import App from '@/components/App/App';
+import Layout from '@/components/Layouts/Layout';
 
 function Home() {
   return (
-    <App />
+    <Layout>
+      <App />
+    </Layout>
   );
 }
 

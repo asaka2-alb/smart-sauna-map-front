@@ -9,10 +9,7 @@ import backendUrls from './backend_urls.json';
 
 import Maps from '@/components/Map/Map';
 import QueryForm from '@/components/QueryForm/QueryForm';
-
 import LoadingScreen from './LoadingScreen/LoadingScreen';
-
-import Layout from '@/components/Layouts/Layout';
 
 function App() {
   const [center, setCenter] = useState({ lat: 35.683542, lng: 139.703338 });
@@ -67,7 +64,7 @@ function App() {
   }
 
   return (
-    <Layout>
+    <>
       <QueryForm
         query={query}
         onInput={handleFormInput}
@@ -82,7 +79,7 @@ function App() {
         <Maps center={center} saunas={saunas} />
       </Stack>
       <LoadingScreen isSearching={isSearching} />
-    </Layout>
+    </>
   );
 }
 
