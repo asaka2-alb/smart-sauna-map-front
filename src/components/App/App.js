@@ -2,16 +2,13 @@
 /* eslint-disable import/no-unresolved */
 
 import React, { useState } from 'react';
-import { ThemeProvider, CssBaseline, Stack } from '@mui/material';
+import { Stack } from '@mui/material';
 import ErrorAlert from '@/components/Alerts/Alerts';
 
-import theme from '@/theme/theme';
 import backendUrls from './backend_urls.json';
 
 import Maps from '@/components/Map/Map';
 import QueryForm from '@/components/QueryForm/QueryForm';
-import Logo from '@/components/Logo/Logo';
-import CopyRight from '@/components/CopyRight/CopyRight';
 import LoadingScreen from './LoadingScreen/LoadingScreen';
 
 function App() {
@@ -68,33 +65,19 @@ function App() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <div className="App">
-          <Stack
-            direction={{ xs: 'column', sm: 'row', md: 'row' }}
-            spacing={1}
-          >
-            <Logo />
-            <QueryForm
-              query={query}
-              onInput={handleFormInput}
-              onSubmit={handleFormSubmit}
-            />
-            <ErrorAlert
-              open={openAlert}
-              onClose={handleAlertClose}
-              message={alertMessage}
-            />
-          </Stack>
-          <Stack div sx={{ height: 'calc(80vh - 30px)' }}>
-            <Maps center={center} saunas={saunas} />
-          </Stack>
-          <Stack>
-            <CopyRight />
-          </Stack>
-        </div>
-      </ThemeProvider>
+      <QueryForm
+        query={query}
+        onInput={handleFormInput}
+        onSubmit={handleFormSubmit}
+      />
+      <ErrorAlert
+        open={openAlert}
+        onClose={handleAlertClose}
+        message={alertMessage}
+      />
+      <Stack div sx={{ height: 'calc(80vh - 30px)' }}>
+        <Maps center={center} saunas={saunas} />
+      </Stack>
       <LoadingScreen isSearching={isSearching} />
     </>
   );
